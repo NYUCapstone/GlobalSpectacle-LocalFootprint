@@ -185,21 +185,22 @@
       .stat-chips{grid-template-columns:1fr 1fr}
     }
   </style>
+<style id="embedcss"></style><script>
+if(window.self!==window.top){document.getElementById('embedcss').textContent='nav{display:none!important}body{padding-top:0!important}footer{display:none!important}';
+var send=function(){try{parent.postMessage({h:document.body.scrollHeight},'*')}catch(e){}};
+window.addEventListener('load',send);setInterval(send,900);}
+</script>
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="nav-logo">A Study on the FIFA World Cup 2026</a>
-  <ul class="nav-links">
+    <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="museum.html">Museum</a></li>
-    <li><a href="climate-map.html" class="active">Climate Map</a></li>
-    <li><a href="climate-data.html">Climate Data</a></li>
+    <li><a href="climate.html" class="active">Climate Data</a></li>
+    <li><a href="tracker.html">Live Trackers <span style="font-size:.6em;vertical-align:middle;background:#e8273a;color:#fff;padding:.15em .45em;border-radius:.3em;font-family:var(--mono);letter-spacing:.03em">LIVE</span></a></li>
     <li><a href="recommendations.html">Recommendations</a></li>
-    <li><a href="sources.html">Sources</a></li>
-    <li><a href="live-tracker.html">Live Tracker <span style="font-size:.65em;vertical-align:middle;background:var(--red);color:#fff;padding:.1em .4em;border-radius:.3em;font-family:var(--mono);letter-spacing:.03em">EXP</span></a></li>
-    <li><a href="team-tracker.html">Team Tracker <span style="font-size:.65em;vertical-align:middle;background:var(--amber,#e07b00);color:#fff;padding:.1em .4em;border-radius:.3em;font-family:var(--mono);letter-spacing:.03em">NEW</span></a></li>
-    <li><a href="about.html">About</a></li>
   </ul>
 </nav>
 
@@ -302,12 +303,7 @@
 <div style="margin:0 3rem 1rem;padding:.65rem 1rem;background:rgba(0,168,107,.07);border-left:2px solid rgba(0,168,107,.3);border-radius:0 3px 3px 0;font-family:var(--mono);font-size:.63rem;color:rgba(255,255,255,.38);line-height:1.75"><strong style="color:rgba(255,255,255,.5)">Data sources:</strong> CO₂: <a href="https://ourworldindata.org/co2-and-greenhouse-gas-emissions" target="_blank" rel="noopener" style="color:#4ec994;text-decoration:none">Our World in Data / GCP &#x2197;</a> &middot; <a href="https://essd.copernicus.org/articles/15/5301/2023/" target="_blank" rel="noopener" style="color:#4ec994;text-decoration:none">Friedlingstein et al. 2023 &#x2197;</a> | Temp: <a href="https://berkeleyearth.org/data/" target="_blank" rel="noopener" style="color:#4ec994;text-decoration:none">Berkeley Earth &#x2197;</a> | Pop: <a href="https://data.worldbank.org/indicator/SP.POP.TOTL" target="_blank" rel="noopener" style="color:#4ec994;text-decoration:none">World Bank &#x2197;</a> | Attendance: FIFA Records &#x2197; | Germany 2006: <a href="https://www.oeko.de/oekodoc/292/2006-011-en.pdf" target="_blank" rel="noopener" style="color:#4ec994;text-decoration:none">Green Goal Report &#x2197;</a> | Qatar: <a href="https://carbonmarketwatch.org/publications/poor-tackling-yellow-card-for-2022-fifa-world-cups-carbon-neutrality-claim/" target="_blank" rel="noopener" style="color:#4ec994;text-decoration:none">Carbon Market Watch &#x2197;</a></div>
 <footer>
   <p>WC Climate // 2026 — Data: FIFA · <a href="https://berkeleyearth.org/data/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.3);text-decoration:none" onmouseover="this.style.color='#00a86b'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Berkeley Earth</a> · <a href="https://ourworldindata.org/co2-and-greenhouse-gas-emissions" target="_blank" rel="noopener" style="color:rgba(255,255,255,.3);text-decoration:none" onmouseover="this.style.color='#00a86b'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Global Carbon Project</a> · <a href="https://www.ipcc.ch/report/ar6/wg1/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.3);text-decoration:none" onmouseover="this.style.color='#00a86b'" onmouseout="this.style.color='rgba(255,255,255,.3)'">IPCC AR6</a></p>
-  <div class="flinks">
-    <a href="index.html">Home</a><a href="museum.html">Museum</a>
-    <a href="climate-data.html">Climate Data</a><a href="recommendations.html">Recommendations</a>
-    <a href="sources.html">Sources</a>
-    <a href="live-tracker.html">Live Tracker</a>
-  </div>
+  <div class="flinks"><a href="index.html">Home</a><a href="museum.html">Museum</a><a href="climate.html">Climate Data</a><a href="tracker.html">Live Trackers</a><a href="recommendations.html">Recommendations</a><a href="sources.html">Sources</a><a href="about.html">About Us</a></div>
 </footer>
 
 <script>
