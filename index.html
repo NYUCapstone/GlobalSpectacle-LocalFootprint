@@ -36,18 +36,20 @@
     @keyframes gridShift{from{background-position:0 0}to{background-position:70px 70px}}
 
     /* floating data pills */
-    .hero-pills{position:absolute;top:50%;right:3rem;transform:translateY(-50%);display:flex;flex-direction:column;gap:.85rem;animation:fadeInRight .8s ease .7s both}
+    .hero-pills{position:absolute;top:50%;right:3rem;transform:translateY(-50%);display:flex;flex-direction:column;gap:.5rem;max-height:88vh;animation:fadeInRight .8s ease .7s both}
     @keyframes fadeInRight{from{opacity:0;transform:translateY(-50%) translateX(24px)}to{opacity:1;transform:translateY(-50%) translateX(0)}}
-    .pill{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:3px;padding:.85rem 1.1rem;min-width:175px;position:relative;overflow:hidden}
+    .pill{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:3px;padding:.6rem 1rem;min-width:190px;position:relative;overflow:hidden}
     .pill::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px}
     .pill.red::before{background:var(--red)}
     .pill.green::before{background:var(--green)}
     .pill.gold::before{background:var(--gold)}
     .pill.blue::before{background:#6aabff}
     .pill-label{font-family:var(--mono);font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:.3rem}
-    .pill-val{font-family:var(--hero);font-size:1.75rem;line-height:1}
+    .pill-val{font-family:var(--hero);font-size:1.55rem;line-height:1}
     .pill-val.red{color:#ff6b7a}.pill-val.green{color:var(--green)}.pill-val.gold{color:var(--gold)}.pill-val.blue{color:#6aabff}
     .pill-sub{font-family:var(--mono);font-size:.49rem;color:rgba(255,255,255,.22);margin-top:.2rem}
+    .pill-vfy{display:inline-block;font-family:var(--mono);font-size:.42rem;letter-spacing:.12em;text-transform:uppercase;color:#00d488;background:rgba(0,168,107,.14);border:1px solid rgba(0,168,107,.3);padding:.1rem .32rem;border-radius:2px;margin-bottom:.32rem}
+    .pill-vfy.fc{color:#ffa424;background:rgba(255,164,36,.12);border-color:rgba(255,164,36,.3)}
 
     /* hero text */
     .hero-content{position:relative;z-index:2}
@@ -293,23 +295,39 @@
   <div class="hero-pills">
     <div class="pill red">
       <div class="pill-label">2026 Carbon Forecast</div>
-      <div class="pill-val red">9 MtCO₂</div>
-      <div class="pill-sub">Projected footprint<a href="https://www.ipcc.ch/report/ar6/wg1/" target="_blank" rel="noopener" title="IPCC AR6 Working Group I · 2021" style="font-family:var(--mono);font-size:.55em;vertical-align:super;color:#4ec994;text-decoration:none;opacity:.7;margin-left:.12em;transition:opacity .15s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.7'">[↗]</a></div>
-    </div>
-    <div class="pill gold">
-      <div class="pill-label">Hottest Tournament</div>
-      <div class="pill-val gold">Qatar '22</div>
-      <div class="pill-sub">28°C avg · cooled arenas</div>
+      <div class="pill-vfy fc">Forecast</div>
+      <div class="pill-val red">9 MtCO₂e</div>
+      <div class="pill-sub">Full-tournament projection<a href="https://www.ipcc.ch/report/ar6/wg1/" target="_blank" rel="noopener" title="IPCC AR6 Working Group I" style="font-family:var(--mono);font-size:.55em;vertical-align:super;color:#4ec994;text-decoration:none;opacity:.7;margin-left:.12em" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.7'">[↗]</a></div>
     </div>
     <div class="pill red">
-      <div class="pill-label">Peak CO₂ Rise</div>
-      <div class="pill-val red">+49%</div>
-      <div class="pill-sub">Qatar vs bid baseline<a href="https://ourworldindata.org/co2-and-greenhouse-gas-emissions" target="_blank" rel="noopener" title="Global Carbon Project / Our World in Data" style="font-family:var(--mono);font-size:.55em;vertical-align:super;color:#4ec994;text-decoration:none;opacity:.7;margin-left:.12em;transition:opacity .15s" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.7'">[↗]</a></div>
+      <div class="pill-label">Team Travel · Actual</div>
+      <div class="pill-vfy">Verified</div>
+      <div class="pill-val red">4,788 t</div>
+      <div class="pill-sub">677,894 km · forecast within 6%<a href="tracker.html" style="font-family:var(--mono);font-size:.55em;vertical-align:super;color:#4ec994;text-decoration:none;opacity:.7;margin-left:.12em" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.7'">[↗]</a></div>
+    </div>
+    <div class="pill gold">
+      <div class="pill-label">Hottest Match · 2026</div>
+      <div class="pill-vfy">Verified</div>
+      <div class="pill-val gold">101°F</div>
+      <div class="pill-sub">Paraguay v France · RealFeel 110°F<a href="https://www.accuweather.com/en/sports/live-news/world-cup-2026-weather-updates-fan-players-endure-dangerous-heat-and-storms/1898671" target="_blank" rel="noopener" title="AccuWeather · 4 July 2026" style="font-family:var(--mono);font-size:.55em;vertical-align:super;color:#4ec994;text-decoration:none;opacity:.7;margin-left:.12em" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.7'">[↗]</a></div>
+    </div>
+    <div class="pill gold">
+      <div class="pill-label">Play Stopped for Heat</div>
+      <div class="pill-vfy">Verified</div>
+      <div class="pill-val gold">10h 24m</div>
+      <div class="pill-sub">624 min · all 104 matches<a href="https://africa.espn.com/football/story/_/id/47245760/2026-world-cup-feature-hydration-break-every-half" target="_blank" rel="noopener" title="FIFA via ESPN" style="font-family:var(--mono);font-size:.55em;vertical-align:super;color:#4ec994;text-decoration:none;opacity:.7;margin-left:.12em" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.7'">[↗]</a></div>
+    </div>
+    <div class="pill blue">
+      <div class="pill-label">Total Attendance</div>
+      <div class="pill-vfy">Verified</div>
+      <div class="pill-val blue">6.81M</div>
+      <div class="pill-sub">Largest ever · 99.7% capacity<a href="https://stadiumdb.com/news/2026/07/wc_2026_world_cup_in_numbers_what_was_attendance_like_during_the_competition" target="_blank" rel="noopener" title="FIFA official data via StadiumDB" style="font-family:var(--mono);font-size:.55em;vertical-align:super;color:#4ec994;text-decoration:none;opacity:.7;margin-left:.12em" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.7'">[↗]</a></div>
     </div>
     <div class="pill green">
-      <div class="pill-label">CO₂ Trend</div>
-      <div class="pill-val green">↑ Rising</div>
-      <div class="pill-sub">Per-tournament average</div>
+      <div class="pill-label">Predictions Confirmed</div>
+      <div class="pill-vfy">Verified</div>
+      <div class="pill-val green">6 / 6</div>
+      <div class="pill-sub">Every core claim validated<a href="#vindicated" style="font-family:var(--mono);font-size:.55em;vertical-align:super;color:#4ec994;text-decoration:none;opacity:.7;margin-left:.12em" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.7'">[↗]</a></div>
     </div>
   </div>
 
