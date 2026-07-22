@@ -1,8 +1,8 @@
 {
   "_meta": {
     "version": "1.0",
-    "lastUpdated": "2026-07-06",
-    "notes": "Team status and knockout fixtures VERIFIED from ESPN bracket (espn.com/soccer/bracket) on Jul 6, 2026. Group-stage venue assignments in the fixtures array are placeholders based on group regional clusters and have NOT been individually verified — flagged per team with `verified` field. Update this JSON to reflect current tournament state.",
+    "lastUpdated": "2026-07-20",
+    "notes": "FINAL post-tournament data. Sources: ESPN, Yahoo Sports, FOX Sports, Britannica, CBS Sports. Tournament complete July 19, 2026. Spain defeated Argentina 1-0 (AET) in the final at MetLife Stadium. England defeated France 6-4 for third place at Hard Rock Stadium. Knockout-stage venues and results are individually verified. Group-stage venue assignments in the fixtures array remain placeholders flagged per team with `verified` field.",
     "sources": {
       "baseCamps": "https://www.ussoccer.com/stories/2026/06/usmnt/where-are-fifa-world-cup-2026-team-base-camp-training-sites",
       "emissionFactors": {
@@ -109,6 +109,13 @@
         "lat": 25.669,
         "lon": -100.244
       }
+    },
+    "tournamentComplete": true,
+    "finalResults": {
+      "champion": "ESP",
+      "runnerUp": "ARG",
+      "third": "ENG",
+      "fourth": "FRA"
     }
   },
   "teams": [
@@ -117,7 +124,7 @@
       "name": "United States",
       "flag": "🇺🇸",
       "group": "D",
-      "status": "r16",
+      "status": "eliminated",
       "confederation": "CONCACAF",
       "base": {
         "name": "Great Park Sports Complex",
@@ -160,10 +167,10 @@
           "stadium": "sea",
           "stage": "R16",
           "date": "Jul 6",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "Belgium",
-          "result": "upcoming"
+          "result": "1-4 L"
         }
       ],
       "verified": "knockout-verified"
@@ -173,7 +180,7 @@
       "name": "Argentina",
       "flag": "🇦🇷",
       "group": "J",
-      "status": "r16",
+      "status": "runner-up",
       "confederation": "CONMEBOL",
       "base": {
         "name": "Sporting KC Training Center",
@@ -216,10 +223,37 @@
           "stadium": "atl",
           "stage": "R16",
           "date": "Jul 7",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "Egypt",
-          "result": "upcoming"
+          "result": "3-2 W"
+        },
+        {
+          "stadium": "kan",
+          "stage": "QF",
+          "date": "Jul 11",
+          "played": true,
+          "mode": "charter",
+          "opponent": "Switzerland",
+          "result": "3-1 W (AET)"
+        },
+        {
+          "stadium": "atl",
+          "stage": "SF",
+          "date": "Jul 15",
+          "played": true,
+          "mode": "charter",
+          "opponent": "England",
+          "result": "2-1 W"
+        },
+        {
+          "stadium": "nyc",
+          "stage": "FINAL",
+          "date": "Jul 19",
+          "played": true,
+          "mode": "charter",
+          "opponent": "Spain",
+          "result": "0-1 L (AET)"
         }
       ],
       "verified": "knockout-verified"
@@ -397,7 +431,7 @@
       "name": "France",
       "flag": "🇫🇷",
       "group": "F",
-      "status": "qf",
+      "status": "fourth",
       "confederation": "UEFA",
       "base": {
         "name": "Bentley University",
@@ -449,10 +483,28 @@
           "stadium": "bos",
           "stage": "QF",
           "date": "Jul 9",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "Morocco",
-          "result": "upcoming"
+          "result": "2-0 W"
+        },
+        {
+          "stadium": "dal",
+          "stage": "SF",
+          "date": "Jul 14",
+          "played": true,
+          "mode": "charter",
+          "opponent": "Spain",
+          "result": "0-2 L"
+        },
+        {
+          "stadium": "mia",
+          "stage": "3rd",
+          "date": "Jul 18",
+          "played": true,
+          "mode": "charter",
+          "opponent": "England",
+          "result": "4-6 L"
         }
       ],
       "verified": "knockout-verified"
@@ -462,7 +514,7 @@
       "name": "England",
       "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
       "group": "G",
-      "status": "qf",
+      "status": "third",
       "confederation": "UEFA",
       "base": {
         "name": "Swope Soccer Village",
@@ -514,10 +566,28 @@
           "stadium": "mia",
           "stage": "QF",
           "date": "Jul 11",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "Norway",
-          "result": "upcoming"
+          "result": "2-1 W (AET)"
+        },
+        {
+          "stadium": "atl",
+          "stage": "SF",
+          "date": "Jul 15",
+          "played": true,
+          "mode": "charter",
+          "opponent": "Argentina",
+          "result": "1-2 L"
+        },
+        {
+          "stadium": "mia",
+          "stage": "3rd",
+          "date": "Jul 18",
+          "played": true,
+          "mode": "charter",
+          "opponent": "France",
+          "result": "6-4 W"
         }
       ],
       "verified": "knockout-verified"
@@ -574,7 +644,7 @@
       "name": "Spain",
       "flag": "🇪🇸",
       "group": "C",
-      "status": "r16",
+      "status": "winner",
       "confederation": "UEFA",
       "base": {
         "name": "Baylor School",
@@ -617,10 +687,37 @@
           "stadium": "dal",
           "stage": "R16",
           "date": "Jul 6",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "Portugal",
-          "result": "upcoming"
+          "result": "1-0 W"
+        },
+        {
+          "stadium": "lax",
+          "stage": "QF",
+          "date": "Jul 10",
+          "played": true,
+          "mode": "charter",
+          "opponent": "Belgium",
+          "result": "2-1 W"
+        },
+        {
+          "stadium": "dal",
+          "stage": "SF",
+          "date": "Jul 14",
+          "played": true,
+          "mode": "charter",
+          "opponent": "France",
+          "result": "2-0 W"
+        },
+        {
+          "stadium": "nyc",
+          "stage": "FINAL",
+          "date": "Jul 19",
+          "played": true,
+          "mode": "charter",
+          "opponent": "Argentina",
+          "result": "1-0 W (AET)"
         }
       ],
       "verified": "knockout-verified"
@@ -630,7 +727,7 @@
       "name": "Portugal",
       "flag": "🇵🇹",
       "group": "I",
-      "status": "r16",
+      "status": "eliminated",
       "confederation": "UEFA",
       "base": {
         "name": "Gardens North County District Park",
@@ -673,10 +770,10 @@
           "stadium": "dal",
           "stage": "R16",
           "date": "Jul 6",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "Spain",
-          "result": "upcoming"
+          "result": "0-1 L"
         }
       ],
       "verified": "knockout-verified"
@@ -733,7 +830,7 @@
       "name": "Belgium",
       "flag": "🇧🇪",
       "group": "L",
-      "status": "r16",
+      "status": "eliminated",
       "confederation": "UEFA",
       "base": {
         "name": "Seattle Sounders Performance Centre",
@@ -776,10 +873,19 @@
           "stadium": "sea",
           "stage": "R16",
           "date": "Jul 6",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "USA",
-          "result": "upcoming"
+          "result": "4-1 W"
+        },
+        {
+          "stadium": "lax",
+          "stage": "QF",
+          "date": "Jul 10",
+          "played": true,
+          "mode": "charter",
+          "opponent": "Spain",
+          "result": "1-2 L"
         }
       ],
       "verified": "knockout-verified"
@@ -874,7 +980,7 @@
       "name": "Colombia",
       "flag": "🇨🇴",
       "group": "A",
-      "status": "r16",
+      "status": "eliminated",
       "confederation": "CONMEBOL",
       "base": {
         "name": "Academia Atlas FC",
@@ -917,10 +1023,10 @@
           "stadium": "van",
           "stage": "R16",
           "date": "Jul 7",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "Switzerland",
-          "result": "upcoming"
+          "result": "0-0 L (pens 3-4)"
         }
       ],
       "verified": "knockout-verified"
@@ -1355,7 +1461,7 @@
       "name": "Morocco",
       "flag": "🇲🇦",
       "group": "E",
-      "status": "qf",
+      "status": "eliminated",
       "confederation": "CAF",
       "base": {
         "name": "The Pingry School",
@@ -1407,10 +1513,10 @@
           "stadium": "bos",
           "stage": "QF",
           "date": "Jul 9",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "France",
-          "result": "upcoming"
+          "result": "0-2 L"
         }
       ],
       "verified": "knockout-verified"
@@ -1505,7 +1611,7 @@
       "name": "Egypt",
       "flag": "🇪🇬",
       "group": "B",
-      "status": "r16",
+      "status": "eliminated",
       "confederation": "CAF",
       "base": {
         "name": "Gonzaga University",
@@ -1548,10 +1654,10 @@
           "stadium": "atl",
           "stage": "R16",
           "date": "Jul 7",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "Argentina",
-          "result": "upcoming"
+          "result": "2-3 L"
         }
       ],
       "verified": "knockout-verified"
@@ -1843,7 +1949,7 @@
       "name": "Switzerland",
       "flag": "🇨🇭",
       "group": "D",
-      "status": "r16",
+      "status": "eliminated",
       "confederation": "UEFA",
       "base": {
         "name": "SDJA Athletics",
@@ -1886,10 +1992,19 @@
           "stadium": "van",
           "stage": "R16",
           "date": "Jul 7",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "Colombia",
-          "result": "upcoming"
+          "result": "0-0 W (pens 4-3)"
+        },
+        {
+          "stadium": "kan",
+          "stage": "QF",
+          "date": "Jul 11",
+          "played": true,
+          "mode": "charter",
+          "opponent": "Argentina",
+          "result": "1-3 L (AET)"
         }
       ],
       "verified": "knockout-verified"
@@ -2022,7 +2137,7 @@
       "name": "Norway",
       "flag": "🇳🇴",
       "group": "I",
-      "status": "qf",
+      "status": "eliminated",
       "confederation": "UEFA",
       "base": {
         "name": "UNC Greensboro",
@@ -2074,10 +2189,10 @@
           "stadium": "mia",
           "stage": "QF",
           "date": "Jul 11",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "England",
-          "result": "upcoming"
+          "result": "1-2 L (AET)"
         }
       ],
       "verified": "knockout-verified"

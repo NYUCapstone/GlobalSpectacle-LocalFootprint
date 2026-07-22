@@ -130,8 +130,14 @@
     .status-chip.active::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 1.6s ease infinite}
     .status-chip.eliminated{background:rgba(255,255,255,.08);color:rgba(255,255,255,.5)}
     .status-chip.eliminated::before{content:'◆';color:rgba(255,255,255,.35);font-size:.5rem}
-    .status-chip.winner{background:rgba(201,168,76,.25);color:#f0d989}
+    .status-chip.winner{background:rgba(201,168,76,.28);color:#f0d989}
     .status-chip.winner::before{content:'★';color:var(--gold)}
+    .status-chip.runner-up{background:rgba(200,200,205,.18);color:#d9dbe0}
+    .status-chip.runner-up::before{content:'🥈';font-size:.7rem}
+    .status-chip.third{background:rgba(180,110,60,.22);color:#e8b088}
+    .status-chip.third::before{content:'🥉';font-size:.7rem}
+    .status-chip.fourth{background:rgba(255,255,255,.1);color:rgba(255,255,255,.7)}
+    .status-chip.fourth::before{content:'4';color:rgba(255,255,255,.5);font-size:.55rem;font-weight:600}
 
     .emissions-panel{background:var(--surface);border:1px solid var(--border);border-top:none;padding:1.3rem 1.4rem;border-radius:0 0 3px 3px}
     .em-headline{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.55rem}
@@ -261,8 +267,8 @@
   <div class="ph-grid"></div>
   <div class="header-meta">
     Future of the Project<br/>
-    Lab · v1.0 · Team Tracker<br/>
-    Data as of: <span id="dataAsOf">—</span>
+    Lab · v1.1 · Post-tournament<br/>
+    Tournament ended: <span id="dataAsOf">—</span>
   </div>
   <div class="header-year">26</div>
 
@@ -271,7 +277,7 @@
     Team Travel &amp; Emissions
   </div>
   <h1>Forty-eight <em>Nations.</em><br/>One <span class="outline">Continent.</span></h1>
-  <p>Pick a team. See where they train, every match they've played or will play, the ground and air routes between them — and the CO₂e their travel has produced. All 48 base camps sourced from FIFA's official Team Base Camp assignments.</p>
+  <p>The 2026 FIFA World Cup is complete. <strong style="color:rgba(255,255,255,.85)">Spain</strong> defeated Argentina 1-0 in extra time at MetLife to claim their second title. Pick a team to see where they trained, every match they played, the ground and air routes between them — and the CO₂e their travel produced. All 48 base camps sourced from FIFA's official Team Base Camp assignments.</p>
 </section>
 
 <!-- TEAM PICKER STRIP -->
@@ -284,8 +290,8 @@
   </div>
   <div class="picker-filter">
     <button class="fbtn on" data-filter="all">All 48</button>
-    <button class="fbtn" data-filter="active">Still in</button>
-    <button class="fbtn" data-filter="eliminated">Gone home</button>
+    <button class="fbtn" data-filter="podium">🏆 Top 4</button>
+    <button class="fbtn" data-filter="eliminated">Eliminated</button>
   </div>
   <div class="picker-stats">
     <div>Total km travelled<strong id="statKm">—</strong></div>
@@ -381,7 +387,7 @@
 
     <div class="caveat">
       <div class="caveat-head">Data verification</div>
-      <p><strong>Verified from ESPN bracket (Jul 6, 2026):</strong> team status, all Round-of-32 and Round-of-16 results, upcoming quarterfinal fixtures — opponent, venue, score. <strong>Not individually verified:</strong> group-stage venue assignments (encoded from group regional clusters). Distances use great-circle math; bus routes add a 25% road-detour factor; a &lt;500 km threshold auto-flips bus→charter. Update <code>teams-data.json</code> to reflect current tournament state.</p>
+      <p><strong>Verified post-tournament (Jul 20, 2026):</strong> team status, every knockout-stage result — opponent, venue, score — for all 32 teams that reached the R32, through to Spain's 1-0 (AET) win over Argentina in the final. Sources: ESPN, Yahoo Sports, FOX Sports, Britannica. <strong>Not individually verified:</strong> group-stage venue assignments (placeholders based on group regional clusters). Distances use great-circle math; bus routes add a 25% road-detour factor; a &lt;500 km threshold auto-flips bus→charter.</p>
     </div>
   </div>
 </section>
@@ -420,8 +426,8 @@
 const TEAMS_DATA = {
   "_meta": {
     "version": "1.0",
-    "lastUpdated": "2026-07-06",
-    "notes": "Team status and knockout fixtures VERIFIED from ESPN bracket (espn.com/soccer/bracket) on Jul 6, 2026. Group-stage venue assignments in the fixtures array are placeholders based on group regional clusters and have NOT been individually verified — flagged per team with `verified` field. Update this JSON to reflect current tournament state.",
+    "lastUpdated": "2026-07-20",
+    "notes": "FINAL post-tournament data. Sources: ESPN, Yahoo Sports, FOX Sports, Britannica, CBS Sports. Tournament complete July 19, 2026. Spain defeated Argentina 1-0 (AET) in the final at MetLife Stadium. England defeated France 6-4 for third place at Hard Rock Stadium. Knockout-stage venues and results are individually verified. Group-stage venue assignments in the fixtures array remain placeholders flagged per team with `verified` field.",
     "sources": {
       "baseCamps": "https://www.ussoccer.com/stories/2026/06/usmnt/where-are-fifa-world-cup-2026-team-base-camp-training-sites",
       "emissionFactors": {
@@ -528,6 +534,13 @@ const TEAMS_DATA = {
         "lat": 25.669,
         "lon": -100.244
       }
+    },
+    "tournamentComplete": true,
+    "finalResults": {
+      "champion": "ESP",
+      "runnerUp": "ARG",
+      "third": "ENG",
+      "fourth": "FRA"
     }
   },
   "teams": [
@@ -536,7 +549,7 @@ const TEAMS_DATA = {
       "name": "United States",
       "flag": "🇺🇸",
       "group": "D",
-      "status": "r16",
+      "status": "eliminated",
       "confederation": "CONCACAF",
       "base": {
         "name": "Great Park Sports Complex",
@@ -579,10 +592,10 @@ const TEAMS_DATA = {
           "stadium": "sea",
           "stage": "R16",
           "date": "Jul 6",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "Belgium",
-          "result": "upcoming"
+          "result": "1-4 L"
         }
       ],
       "verified": "knockout-verified"
@@ -592,7 +605,7 @@ const TEAMS_DATA = {
       "name": "Argentina",
       "flag": "🇦🇷",
       "group": "J",
-      "status": "r16",
+      "status": "runner-up",
       "confederation": "CONMEBOL",
       "base": {
         "name": "Sporting KC Training Center",
@@ -635,10 +648,37 @@ const TEAMS_DATA = {
           "stadium": "atl",
           "stage": "R16",
           "date": "Jul 7",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "Egypt",
-          "result": "upcoming"
+          "result": "3-2 W"
+        },
+        {
+          "stadium": "kan",
+          "stage": "QF",
+          "date": "Jul 11",
+          "played": true,
+          "mode": "charter",
+          "opponent": "Switzerland",
+          "result": "3-1 W (AET)"
+        },
+        {
+          "stadium": "atl",
+          "stage": "SF",
+          "date": "Jul 15",
+          "played": true,
+          "mode": "charter",
+          "opponent": "England",
+          "result": "2-1 W"
+        },
+        {
+          "stadium": "nyc",
+          "stage": "FINAL",
+          "date": "Jul 19",
+          "played": true,
+          "mode": "charter",
+          "opponent": "Spain",
+          "result": "0-1 L (AET)"
         }
       ],
       "verified": "knockout-verified"
@@ -816,7 +856,7 @@ const TEAMS_DATA = {
       "name": "France",
       "flag": "🇫🇷",
       "group": "F",
-      "status": "qf",
+      "status": "fourth",
       "confederation": "UEFA",
       "base": {
         "name": "Bentley University",
@@ -868,10 +908,28 @@ const TEAMS_DATA = {
           "stadium": "bos",
           "stage": "QF",
           "date": "Jul 9",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "Morocco",
-          "result": "upcoming"
+          "result": "2-0 W"
+        },
+        {
+          "stadium": "dal",
+          "stage": "SF",
+          "date": "Jul 14",
+          "played": true,
+          "mode": "charter",
+          "opponent": "Spain",
+          "result": "0-2 L"
+        },
+        {
+          "stadium": "mia",
+          "stage": "3rd",
+          "date": "Jul 18",
+          "played": true,
+          "mode": "charter",
+          "opponent": "England",
+          "result": "4-6 L"
         }
       ],
       "verified": "knockout-verified"
@@ -881,7 +939,7 @@ const TEAMS_DATA = {
       "name": "England",
       "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
       "group": "G",
-      "status": "qf",
+      "status": "third",
       "confederation": "UEFA",
       "base": {
         "name": "Swope Soccer Village",
@@ -933,10 +991,28 @@ const TEAMS_DATA = {
           "stadium": "mia",
           "stage": "QF",
           "date": "Jul 11",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "Norway",
-          "result": "upcoming"
+          "result": "2-1 W (AET)"
+        },
+        {
+          "stadium": "atl",
+          "stage": "SF",
+          "date": "Jul 15",
+          "played": true,
+          "mode": "charter",
+          "opponent": "Argentina",
+          "result": "1-2 L"
+        },
+        {
+          "stadium": "mia",
+          "stage": "3rd",
+          "date": "Jul 18",
+          "played": true,
+          "mode": "charter",
+          "opponent": "France",
+          "result": "6-4 W"
         }
       ],
       "verified": "knockout-verified"
@@ -993,7 +1069,7 @@ const TEAMS_DATA = {
       "name": "Spain",
       "flag": "🇪🇸",
       "group": "C",
-      "status": "r16",
+      "status": "winner",
       "confederation": "UEFA",
       "base": {
         "name": "Baylor School",
@@ -1036,10 +1112,37 @@ const TEAMS_DATA = {
           "stadium": "dal",
           "stage": "R16",
           "date": "Jul 6",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "Portugal",
-          "result": "upcoming"
+          "result": "1-0 W"
+        },
+        {
+          "stadium": "lax",
+          "stage": "QF",
+          "date": "Jul 10",
+          "played": true,
+          "mode": "charter",
+          "opponent": "Belgium",
+          "result": "2-1 W"
+        },
+        {
+          "stadium": "dal",
+          "stage": "SF",
+          "date": "Jul 14",
+          "played": true,
+          "mode": "charter",
+          "opponent": "France",
+          "result": "2-0 W"
+        },
+        {
+          "stadium": "nyc",
+          "stage": "FINAL",
+          "date": "Jul 19",
+          "played": true,
+          "mode": "charter",
+          "opponent": "Argentina",
+          "result": "1-0 W (AET)"
         }
       ],
       "verified": "knockout-verified"
@@ -1049,7 +1152,7 @@ const TEAMS_DATA = {
       "name": "Portugal",
       "flag": "🇵🇹",
       "group": "I",
-      "status": "r16",
+      "status": "eliminated",
       "confederation": "UEFA",
       "base": {
         "name": "Gardens North County District Park",
@@ -1092,10 +1195,10 @@ const TEAMS_DATA = {
           "stadium": "dal",
           "stage": "R16",
           "date": "Jul 6",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "Spain",
-          "result": "upcoming"
+          "result": "0-1 L"
         }
       ],
       "verified": "knockout-verified"
@@ -1152,7 +1255,7 @@ const TEAMS_DATA = {
       "name": "Belgium",
       "flag": "🇧🇪",
       "group": "L",
-      "status": "r16",
+      "status": "eliminated",
       "confederation": "UEFA",
       "base": {
         "name": "Seattle Sounders Performance Centre",
@@ -1195,10 +1298,19 @@ const TEAMS_DATA = {
           "stadium": "sea",
           "stage": "R16",
           "date": "Jul 6",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "USA",
-          "result": "upcoming"
+          "result": "4-1 W"
+        },
+        {
+          "stadium": "lax",
+          "stage": "QF",
+          "date": "Jul 10",
+          "played": true,
+          "mode": "charter",
+          "opponent": "Spain",
+          "result": "1-2 L"
         }
       ],
       "verified": "knockout-verified"
@@ -1293,7 +1405,7 @@ const TEAMS_DATA = {
       "name": "Colombia",
       "flag": "🇨🇴",
       "group": "A",
-      "status": "r16",
+      "status": "eliminated",
       "confederation": "CONMEBOL",
       "base": {
         "name": "Academia Atlas FC",
@@ -1336,10 +1448,10 @@ const TEAMS_DATA = {
           "stadium": "van",
           "stage": "R16",
           "date": "Jul 7",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "Switzerland",
-          "result": "upcoming"
+          "result": "0-0 L (pens 3-4)"
         }
       ],
       "verified": "knockout-verified"
@@ -1774,7 +1886,7 @@ const TEAMS_DATA = {
       "name": "Morocco",
       "flag": "🇲🇦",
       "group": "E",
-      "status": "qf",
+      "status": "eliminated",
       "confederation": "CAF",
       "base": {
         "name": "The Pingry School",
@@ -1826,10 +1938,10 @@ const TEAMS_DATA = {
           "stadium": "bos",
           "stage": "QF",
           "date": "Jul 9",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "France",
-          "result": "upcoming"
+          "result": "0-2 L"
         }
       ],
       "verified": "knockout-verified"
@@ -1924,7 +2036,7 @@ const TEAMS_DATA = {
       "name": "Egypt",
       "flag": "🇪🇬",
       "group": "B",
-      "status": "r16",
+      "status": "eliminated",
       "confederation": "CAF",
       "base": {
         "name": "Gonzaga University",
@@ -1967,10 +2079,10 @@ const TEAMS_DATA = {
           "stadium": "atl",
           "stage": "R16",
           "date": "Jul 7",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "Argentina",
-          "result": "upcoming"
+          "result": "2-3 L"
         }
       ],
       "verified": "knockout-verified"
@@ -2262,7 +2374,7 @@ const TEAMS_DATA = {
       "name": "Switzerland",
       "flag": "🇨🇭",
       "group": "D",
-      "status": "r16",
+      "status": "eliminated",
       "confederation": "UEFA",
       "base": {
         "name": "SDJA Athletics",
@@ -2305,10 +2417,19 @@ const TEAMS_DATA = {
           "stadium": "van",
           "stage": "R16",
           "date": "Jul 7",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "Colombia",
-          "result": "upcoming"
+          "result": "0-0 W (pens 4-3)"
+        },
+        {
+          "stadium": "kan",
+          "stage": "QF",
+          "date": "Jul 11",
+          "played": true,
+          "mode": "charter",
+          "opponent": "Argentina",
+          "result": "1-3 L (AET)"
         }
       ],
       "verified": "knockout-verified"
@@ -2441,7 +2562,7 @@ const TEAMS_DATA = {
       "name": "Norway",
       "flag": "🇳🇴",
       "group": "I",
-      "status": "qf",
+      "status": "eliminated",
       "confederation": "UEFA",
       "base": {
         "name": "UNC Greensboro",
@@ -2493,10 +2614,10 @@ const TEAMS_DATA = {
           "stadium": "mia",
           "stage": "QF",
           "date": "Jul 11",
-          "played": false,
+          "played": true,
           "mode": "charter",
           "opponent": "England",
-          "result": "upcoming"
+          "result": "1-2 L (AET)"
         }
       ],
       "verified": "knockout-verified"
@@ -2906,20 +3027,25 @@ function populatePicker() {
 }
 
 function filterTeams(teams) {
-  if (activeFilter === 'active')     return teams.filter(t => t.status !== 'eliminated');
+  const podiumStatuses = new Set(['winner','runner-up','third','fourth']);
+  if (activeFilter === 'podium')     return teams.filter(t => podiumStatuses.has(t.status));
+  if (activeFilter === 'active')     return teams.filter(t => t.status !== 'eliminated');  // legacy
   if (activeFilter === 'eliminated') return teams.filter(t => t.status === 'eliminated');
   return teams;
 }
 
 function statusLabel(s) {
-  return s === 'group'   ? 'Group stage' :
-         s === 'r32'     ? 'R32 · advancing' :
-         s === 'r16'     ? 'Round of 16' :
-         s === 'qf'      ? 'Quarter-finals' :
-         s === 'sf'      ? 'Semi-finals' :
-         s === 'final'   ? 'FINAL' :
-         s === 'winner'  ? '🏆 CHAMPIONS' :
-         s === 'eliminated' ? 'Gone home' : s;
+  return s === 'winner'    ? '🏆 CHAMPIONS'         :
+         s === 'runner-up' ? '🥈 Runner-up'         :
+         s === 'third'     ? '🥉 3rd place'         :
+         s === 'fourth'    ? '4th place'            :
+         s === 'group'     ? 'Group stage'          :
+         s === 'r32'       ? 'R32 · advancing'      :
+         s === 'r16'       ? 'Round of 16'          :
+         s === 'qf'        ? 'Quarter-finals'       :
+         s === 'sf'        ? 'Semi-finals'          :
+         s === 'final'     ? 'FINAL'                :
+         s === 'eliminated'? 'Eliminated'           : s;
 }
 
 /* ─── Math ─── */
@@ -3164,8 +3290,11 @@ function renderSidebar(team) {
   }
 
   // HERO
-  const chipClass = team.status === 'winner' ? 'winner' :
-                    team.status === 'eliminated' ? 'eliminated' : 'active';
+  const chipClass = team.status === 'winner'    ? 'winner'    :
+                    team.status === 'runner-up' ? 'runner-up' :
+                    team.status === 'third'     ? 'third'     :
+                    team.status === 'fourth'    ? 'fourth'    :
+                    team.status === 'eliminated'? 'eliminated': 'active';
   hero.innerHTML = `
     <div class="team-hero-flag">${team.flag}</div>
     <div class="team-hero-name">${team.name}</div>
